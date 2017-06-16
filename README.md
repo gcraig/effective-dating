@@ -1,14 +1,10 @@
 # Effective Dating (of Goods and Services)
 
-by George Craig, [georgeacraig@gmail.com](georgeacraig@gmail.com), 14-Jun-2017
-
-### Definition
-
-Effective - applicable, valid, enforced, available
+by George Craig, [georgeacraig@gmail.com](georgeacraig@gmail.com)
 
 ### Problem Set
 
-Sometimes, we need to manage data (from all kinds of verticals) and have dates assigned to them which tracks their validity, applicability, enforcement, and availability, etc. "Effective Dating" is this mechanism, often seen in many DatawareHouses as another (temporal) dimension. Simply stated, you will typically see a StartDate, EndDate, or both columns in these tables. Applying this knowledge to the Object layer in a logical and useful manner is the goal of this addition. As a result, simplified date handling will result and less spaghetti code should emerge. Less conditionals will be in your code base and you'll be able to answer questions that relate to "when" events occur.
+Occassionally, we need to manage data (from all kinds of verticals) and have dates assigned to them which tracks their validity, applicability, enforcement, and availability, etc. "Effective Dating" is this mechanism, often seen in many DatawareHouses as another (temporal) dimension. Simply stated, you will typically see a StartDate, EndDate, or both columns in these tables. Applying this knowledge to the Object layer in a logical and useful manner is the goal of this addition. As a result, simplified date handling will result and less spaghetti code should emerge. Less conditionals will be in your code base and you'll be able to answer questions that relate to "when" events occur.
 
 ### Managing Date Ranges, Start Dates, and End Dates with Objects
 
@@ -26,11 +22,13 @@ This design pattern or collective pattern will attempt to manage objects (and su
 
 ### UML Model
 
-![Effective Dating UML](/etc/effective-dating.jpg?raw=true "Effective Dating UML")
+![](etc/effective-dating.jpg?raw=true "Effective Dating UML")
 
 ### UML Model Explanation
 
-TBA
+This is an initial pass; I easily spotted, Item (or Promotion, Discount, Pricing, Styling, etc. any domain object one could imagine) used Inheritance when Composition would be a better mechanism for Item, calling out to EffectiveDateMgr (acting as a Facade), which then an ItemDiscountDateRange would be returned to the caller for application specific Date manipulation. All based on the Template pattern. An application would "plug in" the necessary objects and their relationships would be managed via the patterning. The goal here is to flesh out a simple KISS design and not get mired in objects via "Analysis Paralysis". 
+
+TODO: Continue explanation and design.
 
 ### References
 
@@ -65,3 +63,11 @@ Thus, expect to see at minimum three Java Methods: startDate(), endDate(), isInE
 **Pass 2** - The second design, or grown approach, may include Generics to simplify the design and offer greater flexibility and applicability across any business vertical.
 
 **TODO:** Nice to haves: Annotations, AOP, Java 8&9 code
+
+### Definitions
+
+* Effective - applicable, valid, enforced, available
+
+### Implementation
+
+Jun-2017: Presently, a pluggable implementation is being sought and tested for the above sets of use cases. Thus, design iterations are occurring. In the event that an industry accepted/time tested solution and approach already exists. By all means, we should discuss (if required) and adopt the approach. This document should be considered a living and fluidly changing artifact. 
