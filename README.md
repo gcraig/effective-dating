@@ -26,15 +26,15 @@ This design pattern or collective pattern will attempt to manage objects (and su
 
 ### UML Model Explanation
 
-This is an initial pass; I easily spotted, Item (or Promotion, Discount, Pricing, Styling, etc. any domain object one could imagine) used Inheritance when Composition would be a better mechanism for Item, calling out to EffectiveDateMgr (acting as a Facade), which then an ItemDiscountDateRange would be returned to the caller for application specific Date manipulation. All based on the Template pattern. An application would "plug in" the necessary objects and their relationships would be managed via the patterning. The goal here is to flesh out a simple KISS design and not get mired in objects via "Analysis Paralysis". 
+This is an initial pass; I easily spotted, Item (or Promotion, Discount, Pricing, Styling, etc. any domain object one could imagine) used Inheritance when Composition would be a better mechanism for Item, calling out to EffectiveDateMgr (acting as a Facade), which then an ItemDiscountDateRange would be returned to the caller for application specific Date manipulation. All based on the Template pattern. An application would "plug in" the necessary objects and their relationships would be managed via the patterning. The goal here is to flesh out a simple KISS design and not get mired in objects via "Analysis Paralysis".
 
 TODO: Continue explanation and design.
 
 ### References
 
-"Effective Dating" has roots in ETL (Extraction, Transformation, Loading) and DatawareHousing; all beginning in RDBMS. 
+"Effective Dating" has roots in ETL (Extraction, Transformation, Loading) and DatawareHousing; all beginning in RDBMS.
 
-The following article, despite written specifically for Human Resources lays out the complex issue of dates and when/how they may become an issue or applied. It's not a simple conundrum of when a date is applicable for a given person, item, service or event. Retroactive, ranges, forecasting, etc. all have been a challenge for us at one time or another. 
+The following article, despite written specifically for Human Resources lays out the complex issue of dates and when/how they may become an issue or applied. It's not a simple conundrum of when a date is applicable for a given person, item, service or event. Retroactive, ranges, forecasting, etc. all have been a challenge for us at one time or another.
 
 #1 below will be the first deliverable in this effort.
 
@@ -70,4 +70,10 @@ Thus, expect to see at minimum three Java Methods: startDate(), endDate(), isInE
 
 ### Implementation
 
-Jun-2017: Presently, a pluggable implementation is being sought and tested for the above sets of use cases. Thus, design iterations are occurring. In the event that an industry accepted/time tested solution and approach already exists. By all means, we should discuss (if required) and adopt the approach. This document should be considered a living and fluidly changing artifact. 
+Jun-2017: Presently, a pluggable implementation is being sought and tested for the above sets of use cases. Thus, design iterations are occurring. In the event that an industry accepted/time tested solution and approach already exists. By all means, we should discuss (if required) and adopt the approach. This document should be considered a living and fluidly changing artifact.
+
+### Additional References
+
+Martin Fowler - Temporal Patterns - [https://martinfowler.com/eaaDev/timeNarrative.html](https://martinfowler.com/eaaDev/timeNarrative.html)
+
+Effective Dating Part 1 - [http://www.sqlservercentral.com/articles/Effective+Dating/67806/](http://www.sqlservercentral.com/articles/Effective+Dating/67806/)
